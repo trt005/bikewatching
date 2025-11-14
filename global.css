@@ -47,3 +47,34 @@ body {
   opacity: 0.6;
   font-style: italic;
 }
+
+#map circle, 
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+}
+
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1rem;
+  width: 100vw;
+  box-sizing: border-box;
+  padding-inline: 0.5rem;
+}
+
+.legend > div {
+  flex: 1;
+  background: var(--color);
+  color: white;
+  text-align: center;
+  padding: 0.6em 1.4em;
+  font-size: 0.9rem;
+  border-radius: 2px;
+}
